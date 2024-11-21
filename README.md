@@ -1,4 +1,4 @@
-# docker__template_general
+# docker__template__ml
 
 ```
 docker compose build --progress plain
