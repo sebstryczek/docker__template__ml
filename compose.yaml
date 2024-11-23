@@ -1,14 +1,31 @@
+# services:
+#   main:
+#     container_name: main-template-ml
+#     build:
+#       context: .
+#       dockerfile: ./docker/custom/Dockerfile
+#       no_cache: false
+#     restart: unless-stopped
+#     tty: true
+#     ports:
+#       - "80:80"
+#       - "443:443"
+#     volumes:
+#       - ./app:/workspace/app
+#     deploy:
+#       resources:
+#         reservations:
+#           devices:
+#           - driver: nvidia
+#             capabilities: [gpu]
+
 services:
-  main:
-    container_name: main-template
-    build:
-      context: .
-      dockerfile: ./docker/custom/Dockerfile
-      no_cache: false
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./app:/workspace/app
+  test:
+    image: nvidia/cuda:12.1.0-base-ubuntu22.04
+    command: nvidia-smi
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]

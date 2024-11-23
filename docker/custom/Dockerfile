@@ -1,10 +1,10 @@
-FROM ubuntu:24.04
+FROM nvidia/cuda:12.6.2-base-ubuntu24.04
 
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y wget curl git
 
-RUN echo 4
+RUN nvidia-smi
 
 # COPY ./docker/custom/setup.sh /setup.sh
 # RUN sh /setup.sh
