@@ -15,11 +15,4 @@ echo "Conda version:"
 conda --version
 echo "----------"
 
-conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia -y
-
-echo "----------"
-echo "Is CUDA available:"
-python -c 'import torch; print(torch.cuda.is_available())'
-echo "----------"
-
 echo "Done: setup-conda.sh"
